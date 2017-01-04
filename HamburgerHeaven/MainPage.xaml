@@ -13,30 +13,31 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <RelativePanel>
-            <Button Name="hamburgerButton" FontFamily="Segoe MD2 Assets" FontSize="24" Content="&#xE001;" Click="Button_Click" RelativePanel.AlignLeftWithPanel="True"/>
-            <TextBlock Name="pageNameTxtBlock" FontSize="26" Text="Finance" RelativePanel.AlignBottomWith="hamburgerButton" RelativePanel.RightOf="hamburgerButton" Margin="10,0,0,0" FontWeight="Bold"/>
-            <Button Name="searchButton" FontFamily="Segoe MD2 Assets" FontSize="24" Content="&#xE1A3;" Click="searchButton_Click" RelativePanel.AlignRightWithPanel="True" />
-            <TextBox Name="searchTxtBox" FontSize="20" RelativePanel.LeftOf="searchButton" PlaceholderText="Search" MinWidth="180" RelativePanel.AlignBottomWith="searchButton" BorderBrush="DarkGray" RelativePanel.AlignTopWith="searchButton" Background="LightGray" />
+            <Button Name="hamburgerButton" FontFamily="Segoe MDL2 Assets" FontSize="28" Content="&#xE700;" Click="Button_Click" RelativePanel.AlignLeftWithPanel="True"/>
+            <Button Name="backArrowButton" FontFamily="Segoe MDL2 Assets" FontSize="28" Content="&#xE72B;" Margin="10,0,0,0" Click="backArrow_Click" RelativePanel.RightOf="hamburgerButton" Visibility="Collapsed" />
+            <TextBlock Name="pageNameTxtBlock" FontSize="26" Text="Finance" RelativePanel.AlignBottomWith="hamburgerButton" RelativePanel.RightOf="backArrowButton" Margin="10,0,0,0" FontWeight="Bold"/>
+            <Button Name="searchButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE721;" Click="searchButton_Click" RelativePanel.AlignRightWithPanel="True" />
+            <TextBox Name="searchTxtBox" FontSize="20" RelativePanel.LeftOf="searchButton" PlaceholderText="Search" MinWidth="250" RelativePanel.AlignBottomWith="searchButton" BorderBrush="DarkGray" RelativePanel.AlignTopWith="searchButton" Background="LightGray" />
         </RelativePanel>
-        <SplitView Name="hamburgerSplitView" Grid.Row="1" DisplayMode="CompactOverlay" CompactPaneLength="36" OpenPaneLength="200">
+        <SplitView Name="hamburgerSplitView" Grid.Row="1" DisplayMode="CompactOverlay" CompactPaneLength="48" OpenPaneLength="200">
             <SplitView.Pane>
-                <ListBox SelectionMode="Single">
-                    <ListBoxItem>
+                <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBoxItem Name="financeItem" IsSelected="True">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Segoe MD2 Assets" FontSize="24" Text="&#xE1A3;" />
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="28" Text="&#xE759;" />
                             <TextBlock FontSize="24" Text="Finance" Margin="30,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
-                    <ListBoxItem>
+                    <ListBoxItem Name="foodItem">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Segoe MD2 Assets" FontSize="24" Text="&#xE1A3;" />
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="28" Text="&#xE75D;" />
                             <TextBlock FontSize="24" Text="Food" Margin="30,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
-                <Image />
+                <Image Name="dummyImage" Source="Assets/Financial.png"/>
             </SplitView.Content>
         </SplitView>
     </Grid>
