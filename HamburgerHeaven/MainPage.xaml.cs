@@ -26,5 +26,13 @@ namespace HamburgerHeaven
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            hamburgerSplitView.IsPaneOpen = !hamburgerSplitView.IsPaneOpen;
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 }
