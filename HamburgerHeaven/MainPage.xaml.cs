@@ -26,6 +26,8 @@ namespace HamburgerHeaven
         public MainPage()
         {
             this.InitializeComponent();
+            mainFrame.Navigate(typeof(Financial));
+            financeItem.IsSelected = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
@@ -37,25 +39,23 @@ namespace HamburgerHeaven
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var listBox = sender as ListBox;
-            var selectedItem = listBox.SelectedItem as ListBoxItem;
-            if (selectedItem.Name == "foodItem") {
-                dummyImage.Source = new BitmapImage(new Uri(BaseUri, "Assets/Food.png"));
-                pageNameTxtBlock.Text = "Food";
-                backArrowButton.Visibility = Visibility.Visible;
-            } else {
-                if (dummyImage != null) {
-                    dummyImage.Source = new BitmapImage(new Uri(BaseUri, "Assets/Financial.png"));
-                }
-                pageNameTxtBlock.Text = "Finance";
+            if (financeItem.IsSelected) {
+                mainFrame.Navigate(typeof(Financial));
                 backArrowButton.Visibility = Visibility.Collapsed;
+                pageNameTxtBlock.Text = "Financial";
+            }
+            else if (foodItem.IsSelected) {
+                mainFrame.Navigate(typeof(Food));
+                backArrowButton.Visibility = Visibility.Visible;
+                pageNameTxtBlock.Text = "Food";
             }
             hamburgerSplitView.IsPaneOpen = false;
         }
 
         private void backArrow_Click(object sender, RoutedEventArgs e) {
-            if (Frame.CanGoBack) {
-                Frame.GoBack();
+            if (mainFrame.CanGoBack) {
+                mainFrame.GoBack();
+                financeItem.IsSelected = true;
             }
         }
     }

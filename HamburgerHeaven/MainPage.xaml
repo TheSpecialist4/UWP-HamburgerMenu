@@ -22,7 +22,7 @@
         <SplitView Name="hamburgerSplitView" Grid.Row="1" DisplayMode="CompactOverlay" CompactPaneLength="48" OpenPaneLength="200">
             <SplitView.Pane>
                 <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
-                    <ListBoxItem Name="financeItem" IsSelected="True">
+                    <ListBoxItem Name="financeItem">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="28" Text="&#xE759;" />
                             <TextBlock FontSize="24" Text="Finance" Margin="30,0,0,0" />
@@ -37,7 +37,7 @@
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
-                <Image Name="dummyImage" Source="Assets/Financial.png"/>
+                <Frame Name="mainFrame" />
             </SplitView.Content>
         </SplitView>
     </Grid>
